@@ -1,0 +1,28 @@
+<div class="center header-parent">
+    <div class="container header-content" style="gap: 20px;">
+        <div style="color: #fff; white-space: nowrap;">
+            Search User by ID
+        </div>
+        <div class="w-100">
+            <input class="w-100" placeholder="Ex. Pizza" value="Sushi" [(ngModel)]="searchId" (keyup)="searchUsers()">
+        </div>
+    </div>
+</div>
+
+<div class="center">
+    <div class="container">
+        <div class="user-container">
+            <div *ngFor="let user of filteredUsers" [routerLink]="user.id.toString()" class="user">
+                <div class="avatar">
+                    {{ user.avatar }}
+                </div>
+                <div class="name">
+                    {{ user.first_name + " " + user.last_name }}
+                </div>
+            </div>
+        </div>
+        <div class="paginator">
+            <div class="page-btn" *ngFor="let z of numToArray(totalPages); let i = index" (click)="goToPage(i + 1)" [ngClass]="{ active: currPage == i + 1 }">{{ i + 1 }}</div>
+        </div>
+    </div>
+</div>
