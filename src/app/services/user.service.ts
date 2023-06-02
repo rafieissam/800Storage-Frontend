@@ -16,11 +16,7 @@ export class UserService {
   getUsers(page = 1) {
     return this.http.get<PaginatedResponse<User>>(`${this.API_URL}/users?page=${page}`).pipe(
       map(data => {
-        let users = data.data.map(u => {
-          delete u.email
-          return u;
-        });
-        return { users, total_pages: data.total_pages };
+        return { users: data.data, total_pages: data.total_pages };
       })
     );
   }
@@ -28,9 +24,7 @@ export class UserService {
   getUser(id: number) {
     return this.http.get<OneResponse<User>>(`${this.API_URL}/users/${id}`).pipe(
       map(data => {
-        let user = data.data;
-        delete user.email;
-        return user;
+        return data.data;
       })
     );
   }

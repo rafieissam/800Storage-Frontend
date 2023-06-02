@@ -1,5 +1,25 @@
-<div routerLink="/users">back</div>
+<div class="center topbar">
+    <div class="container">
+        <div class="profile-title">
+            {{ user?.first_name || "User" }}'s Profile
+        </div>
+    </div>
+</div>
 
-<pre *ngIf="user">
-    {{ user | json }}
-</pre>
+<div class="center" style="margin-top: 40px;">
+    <div class="container">
+        <div class="back-btn" routerLink="/users"> Go Back</div>
+        <div *ngIf="!user" style="margin-top: 20px;">
+            <i>No profile found!</i>
+        </div>
+        <div class="user-card" *ngIf="user" style="margin-top: 20px;">
+            <div class="avatar" [ngStyle]="{ backgroundImage: 'url(' + user.avatar + ')' }"></div>
+            <div class="item-list">
+                <div class="item" *ngFor="let item of items">
+                    <div class="label">{{ item.title }}</div>
+                    <div class="value">{{ getUserItem(item.key) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

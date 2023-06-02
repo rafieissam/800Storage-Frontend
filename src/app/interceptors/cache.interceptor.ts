@@ -18,7 +18,7 @@ export class CacheInterceptor implements HttpInterceptor {
             if (cachedResponse) {
                 setTimeout(() => {
                     this.loadingService.stopLoading();
-                }, 200);
+                }, 100);
                 return of(cachedResponse);
             }
         }

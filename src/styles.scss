@@ -8,3 +8,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .w-100 {
     width: 100%;
 }
+
+.center {
+    text-align: center;
+}
+
+.container {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    max-width: 960px;
+    padding: 0 25px;
+}

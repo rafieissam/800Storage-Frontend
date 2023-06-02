@@ -1,4 +1,30 @@
+@-webkit-keyframes animate-stripes {
+   0% { background-position: 0px 0px; }
+    100% { background-position: -210px 0px; }
+}
+
+@keyframes animate-stripes {
+    0% { background-position: 0 0; }
+   100% { background-position: -210px 0; }
+}
+
 .loading-bar {
     height: 10px;
-    background: red;
+    width: 100%;
+    z-index: 9999;
+    background-image: -webkit-linear-gradient(left, #09c, #f44);
+    background-size: 100% 100%;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%);
+        background-size: 35px 20px;
+        -webkit-animation: animate-stripes 1s linear infinite;
+        animation: animate-stripes 1s linear infinite;
+    }
 }
+ 
